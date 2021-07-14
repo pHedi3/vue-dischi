@@ -34,17 +34,28 @@ export default {
 <style lang="scss">
 #app {
   background-color: #1e2d3b;
-  min-height: 100vh;
+  height: 100vh;
   .header {
     height: 48px;
     padding: 12px 24px;
     background-color: #2e3a46;
   }
   .my-container {
-    width: 800px;
-    height: calc(100% - 40px);
+    width: 300px;
+    height: calc(100% - 48px);
     margin: 0 auto;
     padding: 24px 0;
+    overflow-y: auto;
+  }
+  @media screen and (min-width: 600px) {
+    .my-container {
+      width: 500px;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    .my-container {
+      width: 800px;
+    }
   }
 }
 </style>

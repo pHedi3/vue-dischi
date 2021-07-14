@@ -28,7 +28,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .song-box {
-  width: calc(100% / 5 - 24px);
+  width: calc(100% / 2 - 24px);
   padding: 12px;
   margin: 12px;
   background-color: #2e3a46;
@@ -50,6 +50,16 @@ export default {
       color: #687778;
       font-size: 12px;
     }
+  }
+}
+@media screen and (min-width: 600px) {
+  .song-box {
+    width: calc(100% / 3 - 24px);
+  }
+}
+@media screen and (min-width: 900px) {
+  .song-box {
+    width: calc(100% / 5 - 24px);
   }
 }
 </style>
