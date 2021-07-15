@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <Header class="header" @gen="selectGen" @songSerch="conectText" />
-    <Main class="my-container" :songs="filterSong" />
+    <Load v-if="songs.length == 0" />
+    <div v-else>
+      <Header class="header" @gen="selectGen" @songSerch="conectText" />
+      <Main class="my-container" :songs="filterSong" />
+    </div>
   </div>
 </template>
 
@@ -9,12 +12,14 @@
 import axios from "axios";
 import Header from "./components/Header.vue";
 import Main from "./components/Main.vue";
+import Load from "./components/Load.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     Main,
+    Load,
   },
   data() {
     return {
