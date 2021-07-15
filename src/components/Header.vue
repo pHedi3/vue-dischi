@@ -1,19 +1,21 @@
 <template>
   <div>
     <img src="../assets/spotify-logo.png" alt="" />
-    <select v-model="gen" @change="$emit('gen', gen)">
-      <option value="All">ALL</option>
-      <option value="Rock">Rock</option>
-      <option value="Metal">Metal</option>
-      <option value="Pop">Pop</option>
-      <option value="Jazz">Jazz</option>
-    </select>
-    <input
-      type="text"
-      placeholder="cerca la canzone"
-      v-model="songSerch"
-      @keyup.enter="$emit('songSerch', songSerch)"
-    />
+    <div>
+      <select v-model="gen" @change="$emit('gen', gen)">
+        <option value="All">ALL</option>
+        <option value="Rock">Rock</option>
+        <option value="Metal">Metal</option>
+        <option value="Pop">Pop</option>
+        <option value="Jazz">Jazz</option>
+      </select>
+      <input
+        type="text"
+        placeholder="cerca la canzone"
+        v-model="songSerch"
+        @keyup.enter="$emit('songSerch', songSerch)"
+      />
+    </div>
   </div>
 </template>
 
@@ -33,7 +35,7 @@ export default {
 <style scoped lang="scss">
 div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   img {
     height: 100%;
   }
