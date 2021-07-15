@@ -41,6 +41,7 @@ div {
   }
   select {
     width: 80px;
+    margin-right: 12px;
   }
 }
 </style>
