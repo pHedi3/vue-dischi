@@ -59,7 +59,7 @@ export default {
 }
 @media screen and (min-width: 900px) {
   .song-box {
-    width: calc(100% / 5n - 24px);
+    width: calc(100% / 5 - 24px);
   }
 }
 </style>

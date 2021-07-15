@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header class="header" />
-    <Main class="my-container" :songs="songs" />
+    <Header class="header" @gen="selectGen" />
+    <Main class="my-container" :songs="filterSong" />
   </div>
 </template>
 
@@ -19,7 +19,24 @@ export default {
   data() {
     return {
       songs: [],
+      genSelect: "All",
     };
+  },
+  computed: {
+    filterSong() {
+      if (this.genSelect == "All") {
+        return this.songs;
+      }
+
+      return this.songs.filter((element) => {
+        return element.genre == this.genSelect;
+      });
+    },
+  },
+  methods: {
+    selectGen(gen) {
+      this.genSelect = gen;
+    },
   },
   created() {
     axios
