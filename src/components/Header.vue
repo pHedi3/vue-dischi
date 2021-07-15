@@ -8,6 +8,12 @@
       <option value="Pop">Pop</option>
       <option value="Jazz">Jazz</option>
     </select>
+    <input
+      type="text"
+      placeholder="cerca la canzone"
+      v-model="songSerch"
+      @keyup.enter="$emit('songSerch', songSerch)"
+    />
   </div>
 </template>
 
@@ -17,6 +23,7 @@ export default {
   data() {
     return {
       gen: "",
+      songSerch: "",
     };
   },
 };
@@ -24,7 +31,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-img {
-  height: 100%;
+div {
+  display: flex;
+  justify-content: space-evenly;
+  img {
+    height: 100%;
+  }
+  select {
+    width: 80px;
+  }
 }
 </style>

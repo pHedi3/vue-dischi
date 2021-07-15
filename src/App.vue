@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header class="header" @gen="selectGen" />
+    <Header class="header" @gen="selectGen" @songSerch="conectText" />
     <Main class="my-container" :songs="filterSong" />
   </div>
 </template>
@@ -20,22 +20,25 @@ export default {
     return {
       songs: [],
       genSelect: "All",
+      songSerch: "",
     };
   },
   computed: {
     filterSong() {
-      if (this.genSelect == "All") {
-        return this.songs;
-      }
-
       return this.songs.filter((element) => {
-        return element.genre == this.genSelect;
+        return (
+          (element.genre == this.genSelect || this.genSelect == "All") &&
+          element.title.toLowerCase().includes(this.songSerch.toLowerCase())
+        );
       });
     },
   },
   methods: {
     selectGen(gen) {
       this.genSelect = gen;
+    },
+    conectText(serch) {
+      this.songSerch = serch;
     },
   },
   created() {
